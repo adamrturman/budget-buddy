@@ -1,5 +1,6 @@
 import React from 'react'
-import { AppBar, IconButton, Typography, Toolbar, Button  } from '@material-ui/core';
+import { Link } from 'react-router-dom'
+import { AppBar, IconButton, Typography, Toolbar  } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 function NavBar () {
@@ -11,6 +12,8 @@ function NavBar () {
                 </IconButton>
                 <Typography variant="h6" color="inherit">
                     Budget Buddy
+                    <Link to="/sign-up">Sign-Up</Link>
+                    <Link to="/sign-in">Sign-In</Link>
                 </Typography>
             </Toolbar>
         </AppBar>
