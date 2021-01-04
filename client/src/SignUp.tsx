@@ -1,21 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { Link } from "react-router-dom";
 import { FormGroup, FormControl, InputLabel, Input, FormHelperText, Button } from '@material-ui/core';
 
 
-function SignUp () {
-    //  make post ajax request
-    
+function SignUp (props:any) {
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
 
     const handleSubmit = (event:any) => {
-        //  hardcode the username and password
+        console.log(username, password)
         axios({
             url: '/auth/signup',
             method: 'POST',
             data: {
-                'username': 'Adam',
-                'password': 'password'
+                'username': username,
+                'password': password
             }
         })
     }
@@ -24,13 +25,13 @@ function SignUp () {
 <div>
     <FormGroup>
         <FormControl>
-            <InputLabel htmlFor="my-input">Email address</InputLabel>
-            <Input id="my-input" aria-describedby="my-helper-text" />
-            <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+            <InputLabel htmlFor="my-input">Username</InputLabel>
+            <Input id="username" aria-describedby="my-helper-text" onChange={event => setUsername(event.target.value)} />
+            <FormHelperText id="my-helper-text">We'll never share your credentials.</FormHelperText>
         </FormControl>
         <FormControl>
             <InputLabel htmlFor="my-input">Password</InputLabel>
-            <Input id="my-input"  type="password" aria-describedby="my-helper-text" />
+            <Input id="password"  type="password" aria-describedby="my-helper-text" onChange={event => setPassword(event.target.value)} />
             <FormHelperText id="my-helper-text">Make your password unique</FormHelperText>
         </FormControl>
         <FormControl>
