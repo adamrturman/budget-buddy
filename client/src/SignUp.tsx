@@ -3,15 +3,16 @@ import axios from 'axios'
 import { Link } from "react-router-dom";
 import { FormGroup, FormControl, InputLabel, Input, FormHelperText, Button } from '@material-ui/core';
 
-
 function SignUp (props:any) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [jwt, setJwt] = useState('')
 
+    const { history } = props
 
     const handleSubmit = (event:any) => {
         console.log(username, password)
-        axios({
+        const res:any = axios({
             url: '/auth/signup',
             method: 'POST',
             data: {
@@ -19,8 +20,12 @@ function SignUp (props:any) {
                 'password': password
             }
         })
+        .then(res => setJwt(res.data))
+        .finally(() => history.push('/1')) 
     }
-    
+
+    localStorage.setItem('Jwt', jwt)
+     
     return (
 <div>
     <FormGroup>

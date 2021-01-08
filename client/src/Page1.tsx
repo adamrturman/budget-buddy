@@ -10,6 +10,7 @@ function Page1() {
         <div>
             <h1>Page 1</h1>
             <Link to="/2">Go to page 2</Link>
+            <Link to="/private">Protected Route</Link>
         </div>
     );
 }
