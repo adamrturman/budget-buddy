@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import {setUpJWT} from './services/authService';
 import { Link } from "react-router-dom";
 import { FormGroup, FormControl, InputLabel, Input, FormHelperText, Button } from '@material-ui/core';
 
@@ -21,7 +22,7 @@ function SignUp(props: any) {
             }
         })
             .then(res => {
-                localStorage.setItem('Jwt', res.data)
+                setUpJWT(res.data);
                 history.push('/1')
             })
             .catch(error => alert(error))

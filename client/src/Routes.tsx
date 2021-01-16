@@ -7,7 +7,8 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import NavBar from "./NavBar";
 import Private from './AuthExample'
-
+import StarWars from './StarWars'
+import Picture from './Picture'
 
 
 function Routes() {
@@ -20,6 +21,8 @@ function Routes() {
                 <Route exact path="/2" component={Page2}/>
                 <Route exact path="/sign-up" component={SignUp}/>
                 <Route exact path="/sign-in" component={SignIn}/>
+                <Route exact path="/star-wars" component={StarWars}/>
+                <Route exact path="/picture" component={Picture}/>
                 <Route path="/private" component={Private}/>
                 <Redirect to="/1"/>
             </Switch>

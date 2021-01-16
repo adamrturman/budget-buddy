@@ -14,6 +14,8 @@ function NavBar () {
                     Budget Buddy
                     <Link to="/sign-up">Sign-Up</Link>
                     <Link to="/sign-in">Sign-In</Link>
+                    <Link to="/star-wars">Star Wars</Link>
+                    <Link to="/picture">Picture</Link>
                 </Typography>
             </Toolbar>
         </AppBar>
